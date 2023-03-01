@@ -150,6 +150,13 @@ def alreadyMade(postN):
         if supposedName == f:
             return True
     return False
+  
+
+def UploadVideo():
+    import subprocess
+    print('python3 upload_video.py --file="./outputvideos/' + outputName() + '__-__r%' + subRedName + '.mp4" --title="'+re.sub(r'[^\w]', ' ', commentsToSay[0].replace("\\", "")) + '  -  r/' + subRedName + '" --description="Comment your own opinion\\n\\nMusic:\\nLakey Inspired\\n\\n#shorts\\n#reddit" --category="24" --keywords="reddit,storytime,askreddit,reading,read reddit"')
+    output = subprocess.run(['python3', 'upload_video.py', '--file="./outputvideos/' + outputName() + '__-__r%' + subRedName + '.mp4"', '--title="'+re.sub(r'[^\w]', ' ', commentsToSay[0].replace("\\", "")) + '  -  r/' + subRedName + '"', '--description="Comment your own opinion\n\nMusic:\nLakey Inspired\n\n#shorts\n#reddit"', '--category="24"', '--keywords="reddit,storytime,askreddit,reading,read reddit"'])
+
 
 while True:
     if os.path.isdir("./pendingvoiceclips/" + tempFolderName) == False:
